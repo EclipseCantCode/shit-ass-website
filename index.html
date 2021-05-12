@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script src="p5.min.js"></script>
+    </head>
+    <body>
+        <script>
+            let theta = 0
+            let backgroundColour
+function setup() {
+            colorMode(HSB, 1);
+            createCanvas(windowWidth, windowHeight);
+            background(100);
+            textAlign(CENTER, CENTER)
+}
+
+function windowResized() {
+            resizeCanvas(windowWidth, windowHeight);
+}
+
+
+function sinThisBitch(x){
+  return (180 * Math.sin(((x % 360) * (Math.PI/180)) * 10) + 180) / 360
+}
+
+function cosThisBitch(x){
+    return (180 * Math.cos(((x % 360) * (Math.PI/180)) * 10) + 180) / 360
+}
+
+
+function draw(){
+      background(cosThisBitch(new Date().getTime() / 1000), 1, 1)
+
+  textSize(windowWidth/5)
+    push();
+  translate(windowWidth/2, windowHeight/2); // Translate to the center
+  rotate(theta);                // Rotate by theta
+    text("Eat Cock", windowWidth/2, windowHeight /2)
+  popMatrix();
+
+  // Increase rotation
+  theta += 0.02;
+
+    
+  
+  fill( sinThisBitch(new Date().getTime() / 1000), 1, 1 )
+}
+
+        </script>
+    </body>
+</html>
+
